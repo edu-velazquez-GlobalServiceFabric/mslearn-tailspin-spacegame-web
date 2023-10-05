@@ -1,3 +1,12 @@
-pool: MyAgentPool
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
 steps:
-- bash: echo hello world
+- dotnet build --configuration $(BuildConfiguration)
+  displayName 'dotnet build --configuration $(BuildConfiguration)'
